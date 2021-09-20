@@ -1,19 +1,21 @@
 import * as React from 'react';
+import { FunctionComponent } from 'react';
 import { View, Text, Button } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { HistoryScreenProps } from '../App.types';
 
-export default function HistoryScreen( {navigation} ){
+const HistoryScreen: FunctionComponent<HistoryScreenProps> = ({route, navigation}) => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>History Screen</Text>
             <Button
                 title="Go to Session Screen"
-                onPress={() => navigation.push('SessionScreen')}
+                onPress={() => navigation.navigate("SessionScreen")}
             />
-            <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+            <Button title="Go to Home" onPress={() => navigation.navigate("HomeScreen")} />
             <Button title="Go back" onPress={() => navigation.goBack()} />
         </View>
 
     );
 };
+
+export default HistoryScreen;
